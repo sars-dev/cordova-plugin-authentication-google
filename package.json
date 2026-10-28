@@ -1,0 +1,62 @@
+{
+  "name": "cordova-plugin-authentication-google",
+  "version": "0.1.0",
+  "description": "Google Sign-In for Apache Cordova using the modern Google identity APIs (Credential Manager on Android).",
+  "cordova": {
+    "id": "cordova-plugin-authentication-google",
+    "platforms": [
+      "android"
+    ]
+  },
+  "types": "types/index.d.ts",
+  "files": [
+    "plugin.xml",
+    "www/",
+    "src/",
+    "types/",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc -p tests/types",
+    "test": "npm run lint && npm run typecheck"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova",
+    "cordova-plugin",
+    "google",
+    "google-sign-in",
+    "sign-in-with-google",
+    "authentication",
+    "oauth",
+    "credential-manager"
+  ],
+  "author": "Said Salas <saidsals10@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sars-dev/cordova-plugin-authentication-google.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sars-dev/cordova-plugin-authentication-google/issues"
+  },
+  "homepage": "https://github.com/sars-dev/cordova-plugin-authentication-google#readme",
+  "engines": {
+    "cordovaDependencies": {
+      "0.1.0": {
+        "cordova": ">=12.0.0",
+        "cordova-android": ">=13.0.0"
+      }
+    }
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.13.0",
+    "globals": "^17.13.0",
+    "typescript": "^7.0.2"
+  }
+}

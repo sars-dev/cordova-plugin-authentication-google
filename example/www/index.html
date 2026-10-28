@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self' data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <title>Google Auth Example</title>
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <h1>Google Auth</h1>
+    <p id="status">Waiting for deviceready…</p>
+
+    <section id="user" hidden>
+        <img id="photo" alt="">
+        <div>
+            <strong id="name"></strong>
+            <span id="email"></span>
+        </div>
+    </section>
+
+    <div class="buttons">
+        <button data-action="signIn" disabled>signIn()</button>
+        <button data-action="signInButton" disabled>signIn({ mode: 'button' })</button>
+        <button data-action="signInSilently" disabled>signInSilently()</button>
+        <button data-action="authorize" disabled>authorize(scopes)</button>
+        <button data-action="signOut" disabled>signOut()</button>
+        <button data-action="revokeAccess" disabled>revokeAccess()</button>
+    </div>
+
+    <h2>Log <button id="clear" class="link">clear</button></h2>
+    <pre id="log"></pre>
+
+    <script src="cordova.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

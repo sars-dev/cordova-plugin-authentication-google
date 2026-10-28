@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-authentication-google"
+        version="0.1.0">
+
+    <name>Google Authentication</name>
+    <description>Google Sign-In for Apache Cordova using the modern Google identity APIs.</description>
+    <license>MIT</license>
+    <keywords>cordova,google,sign-in,authentication,oauth,credential-manager</keywords>
+    <repo>https://github.com/sars-dev/cordova-plugin-authentication-google.git</repo>
+    <issue>https://github.com/sars-dev/cordova-plugin-authentication-google/issues</issue>
+
+    <engines>
+        <engine name="cordova" version=">=12.0.0" />
+        <engine name="cordova-android" version=">=13.0.0" />
+    </engines>
+
+    <!-- OAuth client ID of type "Web application" from Google Cloud Console. -->
+    <preference name="WEB_CLIENT_ID" />
+
+    <js-module src="www/google-auth.js" name="GoogleAuth">
+        <clobbers target="cordova.plugins.GoogleAuth" />
+    </js-module>
+
+    <platform name="android">
+        <!-- Default library versions. Each one can be overridden at install time with a variable of the same name (see README). -->
+        <preference name="ANDROIDX_CREDENTIALS_VERSION" default="1.6.0" />
+        <preference name="GOOGLE_ID_VERSION" default="1.2.1" />
+        <preference name="PLAY_SERVICES_AUTH_VERSION" default="22.0.0" />
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="GoogleAuth">
+                <param name="android-package" value="cordova.plugin.googleauth.GoogleAuthPlugin" />
+            </feature>
+            <preference name="GoogleAuthWebClientId" value="$WEB_CLIENT_ID" />
+        </config-file>
+
+        <framework src="androidx.credentials:credentials:$ANDROIDX_CREDENTIALS_VERSION" />
+        <framework src="androidx.credentials:credentials-play-services-auth:$ANDROIDX_CREDENTIALS_VERSION" />
+        <framework src="com.google.android.libraries.identity.googleid:googleid:$GOOGLE_ID_VERSION" />
+        <framework src="com.google.android.gms:play-services-auth:$PLAY_SERVICES_AUTH_VERSION" />
+
+        <source-file src="src/android/GoogleAuthPlugin.java"
+                     target-dir="src/cordova/plugin/googleauth" />
+    </platform>
+</plugin>
